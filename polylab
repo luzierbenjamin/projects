@@ -1,0 +1,112 @@
+//============================================================================
+// Name        : polylab.cpp
+// Author      : Benjamin Luzier
+// Class       : 11 am
+// Copyright   : 2022
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+// class declaration
+
+const double PI = 2.0 * asin(1.0);
+
+class Circle
+{
+  protected:
+    double radius;
+  public:
+    Circle(double = 1.0);  // constructor
+    virtual double calcval();
+};
+
+// implementation section for Circle
+
+// constructor
+Circle::Circle(double r)
+{
+  radius = r;
+}
+
+// calculate the area of a circle
+double Circle::calcval()
+{
+  return(PI * radius * radius);
+}
+
+// class declaration for the derived class
+// Cylinder which is derived from Circle
+class Cylinder : public Circle
+{
+  protected:
+    double length;  // add one additional data member and
+  public:           // two additional function members
+    Cylinder(double r, double len);
+    virtual double calcval();
+};
+
+Cylinder::Cylinder(double r, double len){
+	length =len;
+	this->radius =r;
+}
+// implementation section for Cylinder
+
+double Cylinder::calcval()   // this calculates a volume
+{
+  return length * Circle::calcval(); // note the base function call
+}
+
+class Sphere : public Circle
+{
+  public:
+    virtual double calcval();
+    Sphere(double r) : Circle (r){}
+};
+
+// implementation section for SPhere
+
+double Sphere::calcval()   // this calculates a surface area
+{
+  return (4.0/3.0) * Circle::calcval()* radius; // note the base function call
+}
+
+int main()
+{
+   cout << "Some examples using static bindings, e.g., circ1.area() " << endl;
+
+   Circle A(1.0);
+   cout << "Circle area " << A.calcval() << endl;
+
+   Cylinder B(1.0, 2.0);
+   cout << "Cylinder area "<< B.calcval() << endl;
+
+   Sphere C(1.0);
+   cout << "Sphere area " << C.calcval() << endl;
+
+   cout << "Some attempts at polymorphism, e.g., base_ptr->calvval() " << endl;
+
+   // first create a "base class pointer"
+
+   Circle *base_ptr;
+
+   // point to a Cylinder object
+
+   base_ptr = &B;
+
+   // invoke the area function
+
+   cout << "Cylinder area = " << base_ptr->calcval() << endl;
+
+   // point to a Sphere object
+
+   base_ptr = &C;
+
+   // invoke the area function
+
+   cout << "Sphere area = " << base_ptr->calcval() << endl;
+
+   return 0;
+}
