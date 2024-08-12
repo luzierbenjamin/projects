@@ -1,0 +1,47 @@
+    @font-face { /*Imports the digital font*/
+        font-family: 'Digital-7';
+        src: url('digital-7.ttf') format('truetype'); 
+    }
+   
+   #clock { /*Formats the clock design. Makes it the digital font, makes the font green, the background black, etc..*/
+            font-family: 'Digital-7', sans-serif;           
+            font-size: 175px;
+            width: 50%;
+            margin: auto;
+            text-align: center;  
+            color: green;
+            background-color: black;          
+            border: 10px solid grey;
+            border-radius: 20px;
+        }      
+            
+        #work button {  /*Formats the clock in/out buttons to be red, rounded, and centered*/
+            background-color: red;
+            display: inline-block;
+            width: 200px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            color: white;
+            border-radius: 30px;            
+            font-size: 24px;
+        }
+        
+        #break button { /*Formats the break buttons to be blue, rounded, and centered*/
+            background-color: blue;
+            display: inline-block;
+            width: 200px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            color: white;
+            border-radius: 30px;            
+            font-size: 24px;
+        }      
+
+        body{   /*Formats the body to be centered and use the sans-serif font*/
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+    

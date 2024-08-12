@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Employee Clock</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="clockinapp.css">    
+    </head>
+    <body>
+        <h1>Enter Employee ID Number:</h1>
+        <p><input type="number" value="00"></p>
+        <div id="clock">00:00:00</div>        
+        <div id="work"><p><button id="clockin" onclick="clockIn()">Clock In</button> <button id="clockout" onclick="clockOut()">Clock Out</button></p></div>
+        <div id="break"><p><button id="breakstart" onclick="startBreak()">Start Break</button><button id="endbreak" onclick="endBreak()">End Break</button></p></div>
+        <script type="text/javascript" src="clockinapp.js"></script>        
+    </body>
+</html>
